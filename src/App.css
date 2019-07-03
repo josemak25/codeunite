@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather|Montserrat:900&display=swap');
+
 .container {
   height: 100vh;
+  width: 100%;
   padding: 2rem 1rem;
   border: 2px rgb(187, 255, 0) solid;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .MuiFormGroup-root {
@@ -15,3 +18,9 @@
 .MuiFormControlLabel-root {
   margin: 0 !important;
 }
+
+/* @media (max-width: 848px) {
+  .container {
+    width: 100%;
+  }
+} */
