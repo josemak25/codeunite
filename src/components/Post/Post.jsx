@@ -1,18 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { formatDate } from '../../utils/Helpers';
 import styles from './Post.module.css';
 
-const Post = () => {
+const Post = ({ post }) => {
+  const { title, description, pubDate } = post;
   return (
     <article className={styles.post}>
       <header>
         <h3 className={styles.post_title}>
-          <a to="/">Name It, and They Will Come</a>
+          <Link to={`/${title}`}>{title}</Link>
         </h3>
-        <small className={styles.postSmall}>
-          March 25, 2019 • ☕️ 4 min read
-        </small>
+        <small className={styles.postSmall}>{formatDate(pubDate)}</small>
       </header>
-      <p className={styles.post_desc}>A change starts with a story.</p>
+      <p className={styles.post_desc}>{description}.</p>
     </article>
   );
 };

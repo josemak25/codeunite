@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Post from './components/Post/Post';
@@ -16,9 +17,13 @@ function App() {
       <div className="container" style={container}>
         <Header />
         <Profile />
-        <main>
-          <Post />
-        </main>
+        <Router>
+          <main>
+            {posts.map((post, index) => (
+              <Post key={index} post={post} />
+            ))}
+          </main>
+        </Router>
       </div>
     </div>
   );

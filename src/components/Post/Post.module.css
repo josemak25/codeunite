@@ -1,13 +1,17 @@
 .post {
-  border: 2px green solid;
+  /* border: 2px green solid; */
   font-family: 'Merriweather', 'Georgia', serif;
 }
 
 .post_title {
   font-family: Montserrat, sans-serif;
   font-size: 1.75rem;
-  color: rgb(210, 54, 105);
   margin-bottom: 0.4375rem;
+}
+
+.post_title a {
+  text-decoration: none;
+  color: rgb(210, 54, 105);
 }
 
 .postSmall {
@@ -15,7 +19,8 @@
 }
 
 .post_desc {
-  margin-bottom: 1.75rem;
   font-size: 0.9rem;
   font-weight: 700;
+  margin-top: 0.4rem;
+  margin-bottom: 4rem;
 }
