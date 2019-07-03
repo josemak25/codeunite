@@ -1,5 +1,4 @@
 .profile {
-  border: 2px goldenrod solid;
   display: flex;
   margin-bottom: 3rem;
   align-items: center;
@@ -13,4 +12,8 @@
   height: 60px;
   border-radius: 60px;
   margin-right: 1rem;
+}
+
+a {
+  color: #ff6384;
 }

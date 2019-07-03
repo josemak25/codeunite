@@ -34,7 +34,6 @@ function App() {
 export default App;
 
 const root = {
-  border: '2px black solid',
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center'

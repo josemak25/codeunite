@@ -13,3 +13,20 @@
   font-family: 'Merriweather', 'Georgia', serif;
   border-bottom: 1px #d23669 solid;
 }
+
+@media (min-width: 768px) {
+  .footer {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .footer a {
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer a {
+    margin-right: 3rem;
+  }
+}

@@ -4,7 +4,6 @@
   height: 100vh;
   width: 100%;
   padding: 2rem 1rem;
-  border: 2px rgb(187, 255, 0) solid;
   display: flex;
   flex-direction: column;
 }
@@ -19,8 +18,20 @@
   margin: 0 !important;
 }
 
-/* @media (max-width: 848px) {
+@media (min-width: 768px) {
   .container {
-    width: 100%;
+    width: 80%;
   }
-} */
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 45%;
+  }
+}
