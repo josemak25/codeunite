@@ -1,0 +1,15 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3rem;
+  margin-top: 4rem;
+}
+
+.footer a {
+  color: #d23669;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.1rem;
+  font-family: 'Merriweather', 'Georgia', serif;
+  border-bottom: 1px #d23669 solid;
+}

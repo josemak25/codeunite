@@ -11,7 +11,8 @@ const Profile = () => {
       />
       <span>
         <h4>
-          Personal blog by <a href="">Amakiri Joseph</a>.
+          Personal blog by{' '}
+          <a href="https://twitter.com/j_amakiri">Amakiri Joseph</a>.
         </h4>
         <h4>I bring the code right to you</h4>
       </span>
