@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900&display=swap');
+
+.header {
+  display: flex;
+  border: 2px red solid;
+  justify-content: space-between;
+  width: 30%
+}
+
+h1 {
+  font-size: 2rem;
+  font-family: Montserrat, sans-serif;
+  font-weight: 900;
+}
