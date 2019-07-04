@@ -8,6 +8,16 @@
   flex-direction: column;
 }
 
+/* .gatsby-highlight pre[class*='language-'] {
+  float: left;
+  min-width: 100%;
+} */
+
+pre[class*='language-'] {
+  overflow: auto;
+  padding: 1.3125rem;
+}
+
 @media (min-width: 768px) {
   .container {
     width: 80%;

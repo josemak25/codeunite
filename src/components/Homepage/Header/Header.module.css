@@ -7,4 +7,9 @@ h1 {
   font-size: 2rem;
   font-family: Montserrat, sans-serif;
   font-weight: 900;
+  color: #222;
+}
+
+a {
+  text-decoration: none;
 }
