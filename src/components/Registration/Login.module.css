@@ -1,0 +1,72 @@
+/* @import url('https://fonts.googleapis.com/css?family=Merriweather|Montserrat:900&display=swap'); */
+
+.container {
+  border: 2px red solid;
+  height: 100vh;
+}
+
+.header {
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-family: Montserrat, sans-serif;
+  background: #ff6384;
+  color: #222;
+}
+
+.signIn {
+  font-weight: 700;
+  font-family: Fira Code, sans-serif;
+}
+
+.logo {
+  font-size: 5em;
+  position: relative;
+}
+
+.logo span::before {
+  content: '';
+  display: block;
+  background-color: #ff6384;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  border-bottom-right-radius: 20px;
+}
+
+.logo span::after {
+  content: '';
+  display: block;
+  background-color: #ff6384;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 22px;
+  left: -4px;
+  border-bottom-right-radius: 20px;
+}
+
+.logo::after {
+  content: '';
+  display: block;
+  background-color: #a24848;
+  width: 55px;
+  height: 0.5px;
+  position: absolute;
+  top: 90px;
+  left: 30px;
+  z-index: 1;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0px 0px 15px 4px rgba(34, 34, 34, 1);
+  -moz-box-shadow: 0px 0px 15px 4px rgba(34, 34, 34, 1);
+  box-shadow: 0px 0px 15px 4px rgba(34, 34, 34, 1);
+}
+
+.form {
+  border: 2px rgb(0, 89, 255) solid;
+  height: 50%;
+}
