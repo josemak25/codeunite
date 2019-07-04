@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './Login.module.css';
 
+import loginImg from '../../img/profile.png';
+
 const Login = () => {
   return (
     <div className={styles.container}>
@@ -12,15 +14,15 @@ const Login = () => {
       </section>
       <section className={styles.form}>
         <form>
-          <div>
-            <img src="" alt="" />
-            IMAGE
+          <div className={styles.formImg}>
+            <img src={loginImg} alt="sign-in" />
           </div>
-          <div>
+          <div className={styles.formField}>
             <label>Username</label>
             <input type="text" />
             <label>Password</label>
             <input type="text" />
+            <button>Submit</button>
           </div>
         </form>
       </section>

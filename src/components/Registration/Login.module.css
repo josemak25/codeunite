@@ -1,12 +1,11 @@
 /* @import url('https://fonts.googleapis.com/css?family=Merriweather|Montserrat:900&display=swap'); */
 
 .container {
-  border: 2px red solid;
   height: 100vh;
 }
 
 .header {
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -19,6 +18,7 @@
 .signIn {
   font-weight: 700;
   font-family: Fira Code, sans-serif;
+  margin-bottom: 4rem;
 }
 
 .logo {
@@ -67,6 +67,72 @@
 }
 
 .form {
-  border: 2px rgb(0, 89, 255) solid;
-  height: 50%;
+  /* border: 2px rgb(0, 89, 255) solid; */
+  height: 54%;
+  background: #fff;
+  padding: 1rem;
+  position: relative;
+}
+
+.form form {
+  /* border: 2px rgb(0, 255, 55) solid; */
+  border-radius: 1rem;
+  position: relative;
+  top: -70px;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 21px -13px rgba(34, 34, 34, 1);
+  -moz-box-shadow: 0px 0px 21px -13px rgba(34, 34, 34, 1);
+  box-shadow: 0px 0px 21px -13px rgba(34, 34, 34, 1);
+}
+
+.formImg {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.formImg img {
+  width: 50px;
+  height: 50px;
+  margin: 1rem;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 1rem;
+}
+
+.formField input {
+  border: 1px #ececec solid;
+  height: 30px;
+  margin-bottom: 1rem;
+  border-radius: 2px;
+  font-family: Fira Code;
+  font-size: 0.9rem;
+}
+
+.formField label {
+  font-weight: 500;
+  font-family: Fira Code, sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.formField button {
+  background-color: #ff6384;
+  height: 30px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: Fira Code, sans-serif;
+  border-radius: 0.2rem;
+  margin-bottom: 2rem;
+  border: 1px #fff solid;
+}
+
+.formField input:focus {
+  outline-color: #ff6384;
+  outline-width: 2px;
 }
