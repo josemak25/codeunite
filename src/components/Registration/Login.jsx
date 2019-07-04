@@ -23,6 +23,9 @@ const Login = () => {
             <label>Password</label>
             <input type="text" />
             <button>Submit</button>
+            <div className={styles.signUp} onClick={e => console.log(e)}>
+              Sign up
+            </div>
           </div>
         </form>
       </section>

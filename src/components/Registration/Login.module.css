@@ -135,7 +135,20 @@
   border: 1px #fff solid;
 }
 
-.formField input:focus {
+.formField input:focus,
+.formField button:focus {
   outline-color: #ff6384;
   outline-width: 2px;
+  transition: 0.1s all;
+}
+
+.signUp {
+  text-decoration: underline;
+  color: #ff6384;
+  width: 40%;
+  font-weight: 500;
+}
+
+.signUp:hover {
+  cursor: pointer;
 }
