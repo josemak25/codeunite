@@ -1,0 +1,54 @@
+.postContainer {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.postContainer main {
+  background: #fff;
+  height: 25%;
+  display: flex;
+  align-items: center;
+  font-size: 0.5rem;
+  padding: 0 1rem;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
+}
+
+.postImage span {
+  display: inline-block;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 45px;
+  background: #ffa7c4;
+}
+
+.postImage span img {
+  height: 40px;
+  width: 40px;
+}
+
+.postImage {
+  height: 45px;
+  width: 45px;
+  border-radius: 45px;
+  box-shadow: 0px 0px 7px -2px rgba(34, 34, 34, 1);
+}
+
+.postDesc {
+  margin-left: 1rem;
+}
+
+.postDesc h4 {
+  margin: 0;
+}
+
+.postDesc p {
+  margin: 0.3rem 0;
+}
+
+.postDesc a {
+  font-weight: 600;
+}

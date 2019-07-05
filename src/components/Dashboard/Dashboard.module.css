@@ -3,11 +3,11 @@
 
 .main {
   height: 100vh;
-  background: #ececec;
+  background: #abbcc9;
 }
 
 .profile {
-  border: 2px red solid;
+  /* border: 2px red solid; */
   height: 50%;
   padding: 0 1rem;
   position: relative;
@@ -55,7 +55,7 @@
 
 .articlesSection {
   height: 50%;
-  border: 2px rgb(60, 255, 0) solid;
+  padding: 0.5rem;
 }
 
 .totalView {
@@ -79,4 +79,10 @@
   justify-content: space-around;
   font-weight: 630;
   font-family: Montserrat, sans-serif;
+}
+
+@media (min-width: 375px) {
+  .links {
+    margin-top: 4rem;
+  }
 }

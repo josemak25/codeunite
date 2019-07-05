@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import UserPosts from './UserPosts';
+import UserPosts from './UserPosts/UserPosts';
 import AddPost from './AddPost';
 import Stats from './Stats';
 
@@ -8,6 +8,22 @@ import userImg from '../../img/users-5.svg';
 import styles from './Dashboard.module.css';
 
 const Dashboard = () => {
+  const pageLinks = {
+    links: [
+      {
+        name: 'POSTS',
+        path: '/dashboard/'
+      },
+      {
+        name: 'ADD',
+        path: '/dashboard/add'
+      },
+      {
+        name: 'STATS',
+        path: '/dashboard/stats'
+      }
+    ]
+  };
   return (
     <section className={styles.main}>
       <section className={styles.profile}>
@@ -30,15 +46,17 @@ const Dashboard = () => {
             352
           </span>
           <div className={styles.links}>
-            <NavLink to="/dashboard/">POSTS</NavLink>
-            <NavLink to="/dashboard/add">ADD</NavLink>
-            <NavLink to="/dashboard/stats">STATS</NavLink>
+            {pageLinks.links.map((link, i) => (
+              <NavLink to={link.path} key={i}>
+                {link.name}
+              </NavLink>
+            ))}
           </div>
         </section>
       </section>
       <section className={styles.articlesSection}>
         <Route exact path="/dashboard" component={UserPosts} />
-        <Route path="/dashboard/add" component={AddPost} />
+        <Route exact path="/dashboard/add" component={AddPost} />
         <Route path="/dashboard/stats" component={Stats} />
       </section>
     </section>
