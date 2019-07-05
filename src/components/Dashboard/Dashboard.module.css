@@ -1,0 +1,82 @@
+/* Mobile Styles */
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap'); */
+
+.main {
+  height: 100vh;
+  background: #ececec;
+}
+
+.profile {
+  border: 2px red solid;
+  height: 50%;
+  padding: 0 1rem;
+  position: relative;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: #ffffff;
+}
+
+.profile section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout {
+  position: relative;
+  top: 25px;
+}
+
+.profile img {
+  width: 120px;
+  height: 120px;
+  /* border: 2px greenyellow solid; */
+  border-radius: 100px;
+  background: #ff6384;
+}
+
+.imageContainer {
+  border: 10px #ececec solid;
+  border-radius: 80px;
+  padding: 3px;
+  border-style: outset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 5px -1px rgba(34, 34, 34, 1);
+}
+
+.profile h3 {
+  font-size: 1.2rem;
+  margin: 0.3rem;
+}
+
+.articlesSection {
+  height: 50%;
+  border: 2px rgb(60, 255, 0) solid;
+}
+
+.totalView {
+  width: 100px;
+  height: 30px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: 'Merriweather', 'Georgia', serif;
+  font-weight: 600;
+  padding: 0.2rem;
+  box-shadow: 0px 6px 21px -10px rgba(34, 34, 34, 1);
+}
+
+.links {
+  margin-top: 1rem;
+  font-size: 0.7rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  font-weight: 630;
+  font-family: Montserrat, sans-serif;
+}

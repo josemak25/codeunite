@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Logo from './Logo';
 import styles from './Login.module.css';
 
 import loginImg from '../../img/loginProfile.png';
@@ -20,9 +21,7 @@ const Login = () => {
     return (
       <div className={styles.container}>
         <section className={styles.header}>
-          <div className={styles.logo}>
-            <span>C</span>U
-          </div>
+          <Logo />
           <div className={styles.signIn}>SIGN UP</div>
         </section>
         <section className={styles.form}>
@@ -51,9 +50,7 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <section className={styles.header}>
-        <div className={styles.logo}>
-          <span>C</span>U
-        </div>
+        <Logo />
         <div className={styles.signIn}>SIGN IN</div>
       </section>
       <section className={styles.form}>
