@@ -7,7 +7,7 @@ const UserPosts = () => {
   return (
     <article className={styles.postContainer}>
       {testArray.map((post, i) => (
-        <UserPost />
+        <UserPost key={i} />
       ))}
     </article>
   );

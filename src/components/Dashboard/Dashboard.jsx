@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import UserPosts from './UserPosts/UserPosts';
-import AddPost from './AddPost';
+import AddPost from './AddPost/AddPost';
 import Stats from './Stats';
 
 import userImg from '../../img/users-5.svg';

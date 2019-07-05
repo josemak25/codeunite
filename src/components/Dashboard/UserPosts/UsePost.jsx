@@ -6,7 +6,7 @@ const UsePost = () => {
     <main>
       <div className={styles.postImage}>
         <span>
-          <img src="https://img.icons8.com/bubbles/100/000000/secured-letter.png" />
+          <img src="https://img.icons8.com/bubbles/100/000000/secured-letter.png" alt='avatar'/>
         </span>
       </div>
       <div className={styles.postDesc}>
