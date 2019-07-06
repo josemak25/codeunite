@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import UserPosts from './UserPosts/UserPosts';
 import AddPost from './AddPost/AddPost';
-import Stats from './Stats';
+import Stats from './Stats/Stats';
 
 import userImg from '../../img/users-5.svg';
 import styles from './Dashboard.module.css';

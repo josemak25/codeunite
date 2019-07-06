@@ -1,0 +1,46 @@
+.viewCard {
+  background: #fff;
+  padding: 0.4rem;
+  border-radius: 5px;
+  height: 40%;
+  margin-bottom: 0.4rem;
+}
+
+.viewCard h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #444444;
+}
+
+.viewCard h5 {
+  margin: 0;
+  font-size: 0.6rem;
+  color: #444444;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+
+.viewCount {
+  font-weight: 600;
+}
+
+.statsHolder {
+  height: 100%;
+}
+
+.overallGraph {
+  background: #fff;
+  border-radius: 10px;
+  height: 58%;
+  padding: 0.3rem;
+}
+
+.overallGraph span {
+  font-size: 0.7rem;
+  font-weight: 500;
+}

@@ -43,6 +43,8 @@
 
 .postDesc h4 {
   margin: 0;
+  font-size: 0.5rem;
+  font-weight: 600;
 }
 
 .postDesc p {
