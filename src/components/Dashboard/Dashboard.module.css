@@ -1,7 +1,10 @@
-/* Mobile Styles */
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap'); */
+/* Mobile view */
 
-.main {
+.DesktopVersion {
+  display: none;
+}
+
+.MobileVersion {
   height: 100vh;
   background: #abbcc9;
 }
@@ -81,8 +84,193 @@
   font-family: Montserrat, sans-serif;
 }
 
-@media (min-width: 375px) {
+@media (min-width: 360px) {
   .links {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
+}
+
+@media (min-width: 411px) {
+  .links {
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .MobileVersion {
+    display: none;
+  }
+
+  .DesktopVersion {
+    border: 2px red solid;
+    height: 100vh;
+    display: flex;
+    padding-top: 2rem;
+  }
+}
+
+/* Desktop view */
+
+/* sidebar */
+
+.desktopSidebar {
+  /* border: 2px rgb(0, 255, 0) solid; */
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.desktopLogo {
+  margin-bottom: 5rem;
+  font-weight: 700;
+  font-family: Montserrat, sans-serif;
+  cursor: pointer;
+}
+
+.desktopLogo a {
+  text-decoration: none;
+}
+
+.desktopLogo a:hover {
+  color: #66717a;
+}
+
+.userPicture {
+  margin-bottom: 3rem;
+}
+
+.userPicture img {
+  background: #66717a;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+}
+
+.userPicture:hover {
+  cursor: pointer;
+  border-radius: 50px;
+  transition: 0.2s ease-in-out all;
+  box-shadow: 0px 0px 7px -2px rgba(34, 34, 34, 1);
+}
+
+.desktopIcons {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.desktopLogout,
+.desktopIcons div {
+  /* border: 2px rgb(212, 0, 255) solid; */
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  color: #66717a;
+}
+
+.desktopLogout:hover,
+.desktopIcons div:hover {
+  cursor: pointer;
+  background: #f5c4d4;
+  color: #ff6384;
+  transition: 0.3s ease-in-out all;
+}
+
+.desktopLogoutIcon {
+  transform: rotate(180deg);
+  font-size: 1rem;
+}
+
+/* mainview */
+
+.mainView {
+  border: 2px rgb(212, 0, 255) solid;
+  width: 85%;
+  padding-top: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  border-top-left-radius: 80px;
+  background: #f7f7f7;
+}
+
+.mainView header {
+  /* border: 2px rgb(255, 0, 0) solid; */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.mainView header div h5 {
+  font-weight: 600;
+}
+
+.desktopNotification {
+  /* border: 2px rgb(0, 255, 34) solid; */
+  width: 6%;
+  display: flex;
+  justify-content: space-between;
+  color: #66717a;
+  cursor: pointer;
+}
+
+.desktopNotification span:first-child {
+  color: #ff6384;
+}
+
+.desktopNotification span:first-child:hover {
+  color: #66717a;
+  font-size: 1.3rem;
+  transition: 0.3s all;
+}
+.desktopNotification span:last-child:hover {
+  color: #ff6384;
+  font-size: 1.3rem;
+  transition: 0.3s all;
+}
+
+.desktopStatsOverView {
+  border: 2px rgb(0, 68, 255) solid;
+  height: 35%;
+  display: flex;
+}
+
+.desktopStatsOverView div {
+  border: 2px rgb(0, 255, 0) solid;
+}
+
+.desktopUserComments {
+  width: 60%;
+  margin-right: 4rem;
+}
+
+.desktopOverAllStats {
+  width: 40%;
+}
+
+.desktopMaxGraph {
+  margin-top: 2rem;
+  border: 2px rgb(217, 255, 0) solid;
+  height: 35%;
+  display: flex;
+}
+
+.desktopMaxGraph div {
+  border: 2px rgb(8, 8, 8) solid;
+}
+
+.desktopMaxGraphMini {
+  width: 40%;
+}
+
+.desktopMaxGraphMessage {
+  width: 25%;
+  margin-left: 3rem;
 }

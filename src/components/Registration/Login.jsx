@@ -21,7 +21,7 @@ const Login = () => {
     return (
       <div className={styles.container}>
         <section className={styles.header}>
-          <Logo />
+          <Logo designCuts={{ beforeCut: '20px', afterCut: '32px' }} />
           <div className={styles.signIn}>SIGN UP</div>
         </section>
         <section className={styles.form}>
@@ -50,7 +50,9 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <section className={styles.header}>
-        <Logo />
+        <Logo
+          designCuts={{ beforeCut: '20px', afterCut: '32px', fontSize: '5rem' }}
+        />
         <div className={styles.signIn}>SIGN IN</div>
       </section>
       <section className={styles.form}>
