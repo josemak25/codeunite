@@ -4,6 +4,8 @@ import UserPosts from './UserPosts/UserPosts';
 import AddPost from './AddPost/AddPost';
 import Stats from './Stats/Stats';
 import Logo from '../Registration/Logo';
+import UserPost from './UserPosts/UserPost';
+import { userOne, userTwo, userFive } from '../../utils/Helpers';
 
 import userImg from '../../img/users-5.svg';
 import styles from './Dashboard.module.css';
@@ -32,6 +34,22 @@ const Dashboard = () => {
     desktopDes: [
       <i className="fas fa-bell" />,
       <i className="fas fa-envelope" />
+    ],
+
+    desktopComments: [
+      {
+        img: userOne,
+        comment: `We know! you felt it too that finding our new address was difficult for some We know! 
+        you felt it too that finding our new address was difficult for some`
+      },
+      {
+        img: userTwo,
+        comment: `We know! you felt it too that finding our new address was difficult for some We know!`
+      },
+      {
+        img: userFive,
+        comment: `We know! difficult for some We know! you felt it too that finding our new address was difficult for some`
+      }
     ]
   };
   return (
@@ -118,10 +136,15 @@ const Dashboard = () => {
             </div>
           </header>
           <section className={styles.desktopStatsOverView}>
-            <div className={styles.desktopUserComments}>user comments</div>
+            <div className={styles.desktopUserComments}>
+              <h6>Top viewed post comments</h6>
+              {pageLinks.desktopComments.map((user, i) => (
+                <UserPost image={user.img} text={user.comment} key={i} />
+              ))}
+            </div>
             <div className={styles.desktopOverAllStats}>
               {' '}
-              overall statistics
+              <h6>overall statistics</h6>
             </div>
           </section>
           <section className={styles.desktopMaxGraph}>

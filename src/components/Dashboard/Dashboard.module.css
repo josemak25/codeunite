@@ -105,7 +105,7 @@
     border: 2px red solid;
     height: 100vh;
     display: flex;
-    padding-top: 2rem;
+    padding-top: 3rem;
   }
 }
 
@@ -114,7 +114,6 @@
 /* sidebar */
 
 .desktopSidebar {
-  /* border: 2px rgb(0, 255, 0) solid; */
   width: 15%;
   display: flex;
   flex-direction: column;
@@ -165,7 +164,6 @@
 
 .desktopLogout,
 .desktopIcons div {
-  /* border: 2px rgb(212, 0, 255) solid; */
   width: 50px;
   height: 50px;
   margin-bottom: 5px;
@@ -237,22 +235,32 @@
 }
 
 .desktopStatsOverView {
-  border: 2px rgb(0, 68, 255) solid;
+  /* border: 2px rgb(0, 68, 255) solid; */
   height: 35%;
   display: flex;
-}
-
-.desktopStatsOverView div {
-  border: 2px rgb(0, 255, 0) solid;
 }
 
 .desktopUserComments {
   width: 60%;
   margin-right: 4rem;
+  /* border: 2px rgb(255, 208, 0) solid; */
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 20px 12px 20px 5px rgb(234, 223, 223);
+}
+
+.desktopUserComments h6,
+.desktopOverAllStats h6 {
+  margin-left: 1.2rem;
+  margin-top: 0.8rem;
 }
 
 .desktopOverAllStats {
   width: 40%;
+  /* border: 2px rgb(255, 208, 0) solid; */
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 7px 9px 12px 1px rgb(234, 223, 223);
 }
 
 .desktopMaxGraph {
