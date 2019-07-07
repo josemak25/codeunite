@@ -265,20 +265,89 @@
 
 .desktopMaxGraph {
   margin-top: 2rem;
-  border: 2px rgb(217, 255, 0) solid;
   height: 35%;
   display: flex;
 }
 
-.desktopMaxGraph div {
-  border: 2px rgb(8, 8, 8) solid;
-}
-
 .desktopMaxGraphMini {
   width: 40%;
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 20px 12px 20px 5px rgb(234, 223, 223);
 }
 
-.desktopMaxGraphMessage {
+.desktopUserGreetingMessage {
   width: 25%;
   margin-left: 3rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 20px 12px 20px 5px rgb(234, 223, 223);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.desktopUserGreetingMessage img {
+  height: 60px;
+  width: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.desktopUserGreetingMessage div:before {
+  content: '';
+  height: 55px;
+  width: 55px;
+  position: absolute;
+  top: 25px;
+  left: 89px;
+  border-radius: 55px;
+  border: 5px #ffa7c4 solid;
+  background: #fd8fa7;
+  box-shadow: 0px 0px 0px 3px rgb(234, 223, 223);
+}
+
+.desktopUserGreetingMessage div {
+  text-align: center;
+}
+
+.desktopUserGreetingMessage h6 {
+  font-weight: 600;
+  margin-top: 2rem;
+  color: #3d444a;
+}
+
+.desktopUserGreetingMessage p {
+  font-size: 0.8rem;
+  color: #1f2021;
+}
+
+.desktopUserGreetingMessage span {
+  font-family: sans-serif;
+  height: 30px;
+  width: 120px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px rgb(220, 220, 220);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.desktopUserGreetingMessage span h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3d444a;
+  margin-top: 0.5rem;
+}
+
+.desktopUserGreetingMessage:hover,
+.desktopMaxGraphMini:hover,
+.desktopOverAllStats:hover,
+.desktopUserComments:hover {
+  box-shadow: 20px 12px 20px 5px rgb(245, 227, 227);
 }

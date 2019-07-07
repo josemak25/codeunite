@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Stats.module.css';
 
-const ProgressBar = ({ views, title }) => {
+const ProgressBar = ({ views, title, marginTop }) => {
   return (
-    <section style={{ marginTop: '0.4rem' }}>
+    <section style={{ marginTop: marginTop }}>
       <div className={styles.progressHeader}>
         <span style={headerText}>{title}</span>
         <span className={styles.viewCount}>{views}</span>

@@ -5,6 +5,7 @@ import AddPost from './AddPost/AddPost';
 import Stats from './Stats/Stats';
 import Logo from '../Registration/Logo';
 import UserPost from './UserPosts/UserPost';
+import ProgressBar from './Stats/ProgressBar';
 import { userOne, userTwo, userFive } from '../../utils/Helpers';
 
 import userImg from '../../img/users-5.svg';
@@ -49,6 +50,17 @@ const Dashboard = () => {
       {
         img: userFive,
         comment: `We know! difficult for some We know! you felt it too that finding our new address was difficult for some`
+      }
+    ],
+
+    graphsMini: [
+      {
+        title: 'Views',
+        num: 43
+      },
+      {
+        title: 'Likes',
+        num: 89
       }
     ]
   };
@@ -148,8 +160,27 @@ const Dashboard = () => {
             </div>
           </section>
           <section className={styles.desktopMaxGraph}>
-            <div className={styles.desktopMaxGraphMini}>view stats</div>
-            <div className={styles.desktopMaxGraphMessage}>congrats view</div>
+            <div className={styles.desktopMaxGraphMini}>
+              <h6>View stats</h6>
+              {pageLinks.graphsMini.map((graph, i) => (
+                <ProgressBar
+                  views={graph.num}
+                  title={graph.title}
+                  marginTop="2rem"
+                  key={i}
+                />
+              ))}
+            </div>
+            <section className={styles.desktopUserGreetingMessage}>
+              <img src={userImg} alt="greetings message" />
+              <div>
+                <h6>Morning David</h6>
+                <p>Your post for the last 24hrs reached 300 users</p>
+                <span>
+                  <h5>02:54 PM</h5>
+                </span>
+              </div>
+            </section>
           </section>
         </section>
       </section>

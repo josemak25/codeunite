@@ -19,7 +19,12 @@ const UsePost = () => {
         <h3>Anna Smith</h3>
         <h5>Joined 2 years ago</h5>
         {graphs.map((graph, i) => (
-          <ProgressBar views={graph.num} title={graph.title} key={i} />
+          <ProgressBar
+            views={graph.num}
+            title={graph.title}
+            marginTop="0.4rem"
+            key={i}
+          />
         ))}
       </div>
       <div className={styles.overallGraph}>
