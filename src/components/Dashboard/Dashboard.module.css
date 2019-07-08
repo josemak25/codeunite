@@ -102,7 +102,7 @@
   }
 
   .DesktopVersion {
-    border: 2px red solid;
+    /* border: 2px red solid; */
     height: 100vh;
     display: flex;
     padding-top: 3rem;
@@ -163,7 +163,7 @@
 }
 
 .desktopLogout,
-.desktopIcons div {
+.desktopIcons a {
   width: 50px;
   height: 50px;
   margin-bottom: 5px;
@@ -175,7 +175,7 @@
 }
 
 .desktopLogout:hover,
-.desktopIcons div:hover {
+.desktopIcons a:hover {
   cursor: pointer;
   background: #f5c4d4;
   color: #ff6384;
@@ -190,7 +190,7 @@
 /* mainview */
 
 .mainView {
-  border: 2px rgb(212, 0, 255) solid;
+  /* border: 2px rgb(212, 0, 255) solid; */
   width: 85%;
   padding-top: 2rem;
   padding-left: 4rem;

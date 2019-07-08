@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './AddPost.module.css';
 
-export default function AddPost() {
+export default function MobileAddPost() {
   return (
     <article>
       <form className={styles.form}>
