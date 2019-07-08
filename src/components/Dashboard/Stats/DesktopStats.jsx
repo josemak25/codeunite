@@ -1,7 +1,7 @@
 import React from 'react';
 import UserPost from '../UserPosts/UserPost';
 import ProgressBar from './ProgressBar';
-import styles from '../Dashboard.module.css';
+import styles from './Stats.module.css';
 import { userOne, userTwo, userFive } from '../../../utils/Helpers';
 import userImg from '../../../img/users-5.svg';
 
