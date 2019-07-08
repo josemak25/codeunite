@@ -108,9 +108,9 @@ const Dashboard = () => {
           </div>
         </section>
         <section className={styles.mainView}>
-          <Route exact path="/dashboard" component={DesktopStats} />
-          {/* <Route path="/dashboard/add" component={DesktopAddPost} />
-          <Route path="/dashboard/stats" component={DesktopUserPosts} /> */}
+          <Route exact path="/dashboard" component={DesktopUserPosts} />
+          <Route path="/dashboard/add" component={DesktopAddPost} />
+          <Route path="/dashboard/stats" component={DesktopStats} />
         </section>
       </section>
     </>
