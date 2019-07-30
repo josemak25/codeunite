@@ -12,13 +12,7 @@ const Homepage = () => {
     posts: []
   });
 
-  const sleep = milliseconds => {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-  };
-
-  const fetchPosts = async milliseconds => {
-    await sleep(milliseconds);
-
+  const fetchPosts = async () => {
     const API_KEY = '8aiqwmdcl8mtsrzaicgkii4thquj7fl1tu3g6ni9';
     const URL = 'https%3A%2F%2Foverreacted.io%2Frss.xml';
     const response = await fetch(
@@ -34,7 +28,7 @@ const Homepage = () => {
   };
 
   useEffect(() => {
-    fetchPosts(2000);
+    fetchPosts();
   });
 
   return (

@@ -2,9 +2,11 @@ import createError from 'http-errors';
 import express, { Response, Request, NextFunction } from 'express';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import graphqlHTTP from 'express-graphql';
 
 import commentsRouter from './routes/comments';
 import usersRouter from './routes/users';
+import greetSchema from './GraphTypes/schema';
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(cookieParser());
 
 app.use('/api/users', usersRouter);
 app.use('/api/comments', commentsRouter);
+
+app.use('/graphql', graphqlHTTP({ schema: greetSchema, graphiql: true }));
 
 // catch 404 and forward to error handler
 app.use(function(_req, _res, next) {

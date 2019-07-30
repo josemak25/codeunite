@@ -7,6 +7,8 @@
 var app = require('../dist/index').default;
 var debug = require('debug')('codeunite:server');
 var http = require('http');
+var connection = require('../dist/database/database').default;
+require('dotenv').config();
 
 /**
  * Get port from environment and store in Express.
@@ -24,6 +26,16 @@ var server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
+
+/**
+ * Connect to database.
+ */
+
+connection(process.env.MONGODB_URL)
+  .then(() => {
+    console.log('connected successfully');
+  })
+  .catch(err => console.error(err));
 
 server.listen(port);
 server.on('error', onError);
