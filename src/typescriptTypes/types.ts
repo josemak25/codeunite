@@ -23,3 +23,8 @@ export interface postsSchema extends Document {
   categories?: string;
   pubDate?: string;
 }
+
+export interface authorUpdateInterface extends Document {
+  name: string;
+  email: string;
+}
