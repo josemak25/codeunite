@@ -17,9 +17,9 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(cookie_parser_1.default());
 // app.use(express.static(path.join(__dirname, '../public')));
-app.use('/api/users', users_1.default);
-app.use('/api/comments', comments_1.default);
-app.use('/graphql', express_graphql_1.default({ schema: schema_1.default, graphiql: true }));
+app.use('/api/v1/users', users_1.default);
+app.use('/api/v1/comments', comments_1.default);
+app.use('/api/v2/graphql', express_graphql_1.default({ schema: schema_1.default, graphiql: true }));
 // catch 404 and forward to error handler
 app.use(function (_req, _res, next) {
     next(http_errors_1.default(404));

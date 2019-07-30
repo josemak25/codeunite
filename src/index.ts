@@ -16,10 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, '../public')));
 
-app.use('/api/users', usersRouter);
-app.use('/api/comments', commentsRouter);
+app.use('/api/v1/users', usersRouter);
+app.use('/api/v1/comments', commentsRouter);
 
-app.use('/graphql', graphqlHTTP({ schema: greetSchema, graphiql: true }));
+app.use('/api/v2/graphql', graphqlHTTP({ schema: greetSchema, graphiql: true }));
 
 // catch 404 and forward to error handler
 app.use(function(_req, _res, next) {
