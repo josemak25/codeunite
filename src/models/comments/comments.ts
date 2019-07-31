@@ -1,6 +1,6 @@
 import { Schema, model, SchemaTypes } from 'mongoose';
 
-import { commentsSchema } from '../../typescriptTypes/types';
+import { CommentInterface } from '../../typescriptTypes/types';
 
 const schema = new Schema({
   body: {
@@ -20,4 +20,4 @@ const schema = new Schema({
   }
 });
 
-export default model<commentsSchema>('comments', schema);
+export default model<CommentInterface>('comments', schema);

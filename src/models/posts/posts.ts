@@ -1,6 +1,6 @@
 import { Schema, model, SchemaTypes } from 'mongoose';
 
-import { postsSchema } from '../../typescriptTypes/types';
+import { PostInterface } from '../../typescriptTypes/types';
 
 const schema = new Schema({
   title: {
@@ -52,4 +52,4 @@ const schema = new Schema({
   }
 });
 
-export default model<postsSchema>('posts', schema);
+export default model<PostInterface>('posts', schema);

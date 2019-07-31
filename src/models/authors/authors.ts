@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import { authorsSchema } from '../../typescriptTypes/types';
+import { AuthorInterface } from '../../typescriptTypes/types';
 
 const schema = new Schema({
   name: {
@@ -32,4 +32,4 @@ const schema = new Schema({
   }
 });
 
-export default model<authorsSchema>('authors', schema);
+export default model<AuthorInterface>('authors', schema);

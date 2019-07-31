@@ -6,7 +6,7 @@ import graphqlHTTP from 'express-graphql';
 
 import commentsRouter from './routes/comments';
 import usersRouter from './routes/users';
-import greetSchema from './GraphTypes/schema';
+import schema from './GraphTypes/schema';
 
 const app = express();
 
@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/comments', commentsRouter);
 
-app.use('/api/v2/graphql', graphqlHTTP({ schema: greetSchema, graphiql: true }));
+app.use('/graphql', graphqlHTTP({schema, graphiql: true }));
 
 // catch 404 and forward to error handler
 app.use(function(_req, _res, next) {

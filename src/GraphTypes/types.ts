@@ -1,37 +1,23 @@
-import { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLInt } from 'graphql';
+import { GraphQLObjectType, GraphQLString } from 'graphql';
 
-export const authorType = new GraphQLObjectType({
+export const AuthorType = new GraphQLObjectType({
   name: 'Author',
-  fields: {
+  fields: () => ({
     id: {
-      type: GraphQLString
+      type: GraphQLString,
+      description: 'this is the author id'
     },
     name: {
-      type: GraphQLString
+      type: GraphQLString,
+      description: 'this is the author name'
     },
-    age: {
-      type: GraphQLInt
+    email: {
+      type: GraphQLString,
+      description: 'this is the authors email'
+    },
+    password: {
+      type: GraphQLString,
+      description: 'this is the author password'
     }
-  }
-});
-
-export const postsType = new GraphQLObjectType({
-  name: 'Posts',
-  fields: {
-    id: {
-      type: GraphQLString
-    },
-    title: {
-      type: GraphQLString
-    },
-    description: {
-      type: GraphQLString
-    },
-    author: {
-      type: authorType,
-      resolve: (source, _params) => {
-        return source.author;
-      }
-    }
-  }
+  })
 });

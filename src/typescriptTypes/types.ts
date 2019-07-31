@@ -1,19 +1,19 @@
 import { Document } from 'mongoose';
 
-export interface authorsSchema extends Document {
+export interface AuthorInterface extends Document {
   name: string;
   email: string;
   password: string;
   createdAt: string;
 }
 
-export interface commentsSchema extends Document {
+export interface CommentInterface extends Document {
   body: string;
   post: string;
   createdAt: string;
 }
 
-export interface postsSchema extends Document {
+export interface PostInterface extends Document {
   title: string;
   author: string;
   description: string;
@@ -24,7 +24,14 @@ export interface postsSchema extends Document {
   pubDate?: string;
 }
 
-export interface authorUpdateInterface extends Document {
-  name: string;
-  email: string;
+export interface AuthorUpdateInterface extends Document {
+  name?: string;
+  email?: string;
+  password?: string;
+}
+
+export interface ErrorInterface {
+  message: string;
+  path: string[];
+  type: string;
 }

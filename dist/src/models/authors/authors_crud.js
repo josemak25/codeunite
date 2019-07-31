@@ -40,6 +40,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var authors_1 = __importDefault(require("./authors"));
+var authorValidator_1 = require("../../middlewares/authorValidator");
+var utilities_1 = require("../../utils/utilities");
 exports.findAll = function () { return __awaiter(_this, void 0, void 0, function () {
     var error_1;
     return __generator(this, function (_a) {
@@ -65,21 +67,35 @@ exports.findOne = function (authorID) { return __awaiter(_this, void 0, void 0, 
             case 1: return [2 /*return*/, _a.sent()];
             case 2:
                 error_2 = _a.sent();
-                return [2 /*return*/, new Error(error_2.message)];
+                return [2 /*return*/, new Error("No Author with ID " + authorID + " Found")];
             case 3: return [2 /*return*/];
         }
     });
 }); };
+exports.createOne = function (author) {
+    try {
+        var _a = authorValidator_1.validateNewAuthor(author), error = _a.error, value = _a.value;
+        if (error)
+            return utilities_1.constructError(error.details);
+        return authors_1.default.create(value);
+    }
+    catch (error) {
+        return new Error(error.message);
+    }
+};
 exports.updateOne = function (authorID, authorUpdate) { return __awaiter(_this, void 0, void 0, function () {
-    var error_3;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a, error, value, error_3;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
-                _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, authors_1.default.findByIdAndUpdate(authorID, authorUpdate, { new: true }).exec()];
-            case 1: return [2 /*return*/, _a.sent()];
+                _b.trys.push([0, 2, , 3]);
+                _a = authorValidator_1.validateUpdateAuthor(authorUpdate), error = _a.error, value = _a.value;
+                if (error)
+                    return [2 /*return*/, utilities_1.constructError(error.details)];
+                return [4 /*yield*/, authors_1.default.findByIdAndUpdate(authorID, value, { new: true }).exec()];
+            case 1: return [2 /*return*/, _b.sent()];
             case 2:
-                error_3 = _a.sent();
+                error_3 = _b.sent();
                 return [2 /*return*/, new Error(error_3.message)];
             case 3: return [2 /*return*/];
         }

@@ -1,38 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var graphql_1 = require("graphql");
-exports.authorType = new graphql_1.GraphQLObjectType({
+exports.AuthorType = new graphql_1.GraphQLObjectType({
     name: 'Author',
-    fields: {
+    fields: function () { return ({
         id: {
-            type: graphql_1.GraphQLString
+            type: graphql_1.GraphQLString,
+            description: 'this is the author id'
         },
         name: {
-            type: graphql_1.GraphQLString
+            type: graphql_1.GraphQLString,
+            description: 'this is the author name'
         },
-        age: {
-            type: graphql_1.GraphQLInt
+        email: {
+            type: graphql_1.GraphQLString,
+            description: 'this is the authors email'
+        },
+        password: {
+            type: graphql_1.GraphQLString,
+            description: 'this is the author password'
         }
-    }
-});
-exports.postsType = new graphql_1.GraphQLObjectType({
-    name: 'Posts',
-    fields: {
-        id: {
-            type: graphql_1.GraphQLString
-        },
-        title: {
-            type: graphql_1.GraphQLString
-        },
-        description: {
-            type: graphql_1.GraphQLString
-        },
-        author: {
-            type: exports.authorType,
-            resolve: function (source, _params) {
-                return source.author;
-            }
-        }
-    }
+    }); }
 });
 //# sourceMappingURL=types.js.map

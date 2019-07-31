@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../dist/index').default;
+var app = require('../dist/src/index').default;
 var debug = require('debug')('codeunite:server');
 var http = require('http');
 var connection = require('../dist/database/database').default;
@@ -31,7 +31,7 @@ var server = http.createServer(app);
  * Connect to database.
  */
 
-connection(process.env.MONGODB_URL)
+connection(process.env.MONGODB_URL, { useCreateIndex: true })
   .then(() => {
     console.log('connected successfully');
   })
