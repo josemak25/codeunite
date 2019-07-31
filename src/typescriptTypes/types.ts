@@ -7,10 +7,10 @@ export interface AuthorInterface extends Document {
   createdAt: string;
 }
 
-export interface CommentInterface extends Document {
-  body: string;
-  post: string;
-  createdAt: string;
+export interface AuthorUpdateInterface extends Document {
+  name?: string;
+  email?: string;
+  password?: string;
 }
 
 export interface PostInterface extends Document {
@@ -24,10 +24,19 @@ export interface PostInterface extends Document {
   pubDate?: string;
 }
 
-export interface AuthorUpdateInterface extends Document {
-  name?: string;
-  email?: string;
-  password?: string;
+export interface PostUpdateInterface extends Document {
+  title: string;
+  description?: string;
+  thumbnail?: string;
+  link?: string;
+  content?: string;
+  categories?: string;
+}
+
+export interface CommentInterface extends Document {
+  body: string;
+  post: string;
+  createdAt: string;
 }
 
 export interface ErrorInterface {

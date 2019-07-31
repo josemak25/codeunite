@@ -1,6 +1,8 @@
 import { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString } from 'graphql';
-import { findOne, findAll } from '../models/authors/authors_crud';
-import { AuthorType } from './types';
+import { findOneAuthor, findAllAuthors } from '../models/authors/authors_crud';
+import { findAllPost, findOnePost } from '../models/posts/post_crud';
+
+import { AuthorType, PostType } from './types';
 
 const query = new GraphQLObjectType({
   name: 'RootQueryType',
@@ -8,12 +10,23 @@ const query = new GraphQLObjectType({
   fields: {
     authors: {
       type: GraphQLList(AuthorType),
-      resolve: () => findAll()
+      resolve: () => findAllAuthors()
     },
     author: {
       type: AuthorType,
       args: { id: { type: GraphQLString } },
-      resolve: (_parents, args) => findOne(args.id)
+      resolve: (_parents, args) => findOneAuthor(args.id)
+    },
+
+    posts: {
+      type: GraphQLList(PostType),
+      resolve: () => findAllPost()
+    },
+
+    post: {
+      type: PostType,
+      args: { id: { type: GraphQLString } },
+      resolve: (_parents, args) => findOnePost(args.id)
     }
   }
 });

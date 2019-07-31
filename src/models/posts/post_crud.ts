@@ -1,51 +1,51 @@
-import Authors from './authors';
+import Posts from './posts';
 import { AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
 import { validateNewAuthor, validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
 import { constructError } from '../../utils/utilities';
 
-export const findAllAuthors = async () => {
+export const findAllPost = async () => {
   try {
-    return await Authors.find().exec();
+    return await Posts.find().exec();
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const findOneAuthor = async (authorID: string) => {
+export const findOnePost = async (postID: string) => {
   try {
-    return await Authors.findOne({ _id: authorID }).exec();
+    return await Posts.findOne({ _id: postID }).exec();
   } catch (error) {
-    return new Error(`No Author with ID ${authorID} Found`);
+    return new Error(error.message);
   }
 };
 
-export const createOne = (author: AuthorInterface) => {
+export const createPost = (author: AuthorInterface) => {
   try {
     const { error, value } = validateNewAuthor(author);
 
     if (error) return constructError(error.details);
 
-    return Authors.create(value);
+    return Posts.create(value);
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const updateOne = async (authorID: string, authorUpdate: AuthorUpdateInterface) => {
+export const updatePost = async (postID: string, authorUpdate: AuthorUpdateInterface) => {
   try {
     const { error, value } = validateUpdateAuthor(authorUpdate);
 
     if (error) return constructError(error.details);
 
-    return await Authors.findByIdAndUpdate(authorID, value, { new: true }).exec();
+    return await Posts.findByIdAndUpdate(postID, value, { new: true }).exec();
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const deleteOne = async (authorID: string) => {
+export const deletePost = async (postID: string) => {
   try {
-    return await Authors.findByIdAndDelete(authorID).exec();
+    return await Posts.findByIdAndDelete(postID).exec();
   } catch (error) {
     return new Error(error.message);
   }

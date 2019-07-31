@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import { ErrorInterface, AuthorInterface, AuthorUpdateInterface } from '../typescriptTypes/types';
+import { ErrorInterface, AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
 
 const CreateAuthorSchema = {
   name: Joi.string()

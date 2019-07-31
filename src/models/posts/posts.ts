@@ -10,11 +10,13 @@ const schema = new Schema({
     maxlength: 150,
     required: true
   },
+
   author: {
     type: SchemaTypes.ObjectId,
     ref: 'authors',
     required: true
   },
+
   description: {
     type: String,
     trim: true,
@@ -22,25 +24,29 @@ const schema = new Schema({
     maxlength: 150,
     required: true
   },
+
   thumbnail: {
     type: String,
     trim: true,
     lowercase: true,
     minlength: 5
   },
+
   link: {
     type: String,
     trim: true,
     lowercase: true,
     minlength: 5
   },
+
   content: {
     type: String,
     minlength: 5,
     trim: true,
     required: true
   },
-  categories: {
+  
+  category: {
     type: String,
     minlength: 5,
     maxlength: 50,
