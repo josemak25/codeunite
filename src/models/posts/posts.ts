@@ -11,7 +11,7 @@ const schema = new Schema({
     required: true
   },
 
-  author: {
+  author_id: {
     type: SchemaTypes.ObjectId,
     ref: 'authors',
     required: true
@@ -29,14 +29,16 @@ const schema = new Schema({
     type: String,
     trim: true,
     lowercase: true,
-    minlength: 5
+    minlength: 5,
+    default: undefined
   },
 
   link: {
     type: String,
     trim: true,
     lowercase: true,
-    minlength: 5
+    minlength: 5,
+    default: undefined
   },
 
   content: {
@@ -45,7 +47,7 @@ const schema = new Schema({
     trim: true,
     required: true
   },
-  
+
   category: {
     type: String,
     minlength: 5,

@@ -15,7 +15,7 @@ export const findOneAuthor = async (authorID: string) => {
   try {
     return await Authors.findOne({ _id: authorID }).exec();
   } catch (error) {
-    return new Error(`No Author with ID ${authorID} Found`);
+    return new Error(error.message);
   }
 };
 

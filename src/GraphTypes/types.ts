@@ -1,4 +1,6 @@
-import { GraphQLObjectType, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLList } from 'graphql';
+import { findOneAuthor } from '../models/authors/authors_crud';
+import { findAllPost } from '../models/posts/post_crud';
 
 export const AuthorType = new GraphQLObjectType({
   name: 'Author',
@@ -7,17 +9,25 @@ export const AuthorType = new GraphQLObjectType({
       type: GraphQLString,
       description: 'this is the author id'
     },
+
     name: {
       type: GraphQLString,
       description: 'this is the author name'
     },
+
     email: {
       type: GraphQLString,
       description: 'this is the authors email'
     },
+
     password: {
       type: GraphQLString,
       description: 'this is the author password'
+    },
+
+    posts: {
+      type: GraphQLList(PostType),
+      resolve: parent => findAllPost({ author_id: parent.id })
     }
   })
 });
@@ -25,35 +35,47 @@ export const AuthorType = new GraphQLObjectType({
 export const PostType = new GraphQLObjectType({
   name: 'Post',
   fields: () => ({
+    id: {
+      type: GraphQLString,
+      description: 'this is the id of the post'
+    },
+
     title: {
       type: GraphQLString,
       description: 'this is the title of the post'
     },
+
     author: {
-      type: GraphQLString,
-      description: 'this is the id of the author whom created the post'
+      type: AuthorType,
+      description: 'this is the id of the author whom created the post',
+      resolve: (parent, _args) => findOneAuthor(parent.author_id)
     },
 
     description: {
       type: GraphQLString,
       description: 'this is the description of the post'
     },
+
     thumbnail: {
       type: GraphQLString,
       description: 'this is the thumbnail picture of the post'
     },
+
     link: {
       type: GraphQLString,
       description: 'this an external link attached if the post was gotten from na external link'
     },
+
     content: {
       type: GraphQLString,
       description: 'this is the body of the post'
     },
+
     category: {
       type: GraphQLString,
       description: 'this is the category of the post'
     },
+
     pubDate: {
       type: GraphQLString,
       description: 'this is the published date of the post'

@@ -3,9 +3,9 @@ import { AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/ty
 import { validateNewAuthor, validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
 import { constructError } from '../../utils/utilities';
 
-export const findAllPost = async () => {
+export const findAllPost = async (args = {}) => {
   try {
-    return await Posts.find().exec();
+    return await Posts.find(args).exec();
   } catch (error) {
     return new Error(error.message);
   }
