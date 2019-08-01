@@ -1,7 +1,6 @@
-import { GraphQLObjectType, GraphQLSchema, GraphQLList, GraphQLString } from 'graphql';
+import { GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql';
 import { findOneAuthor, findAllAuthors } from '../models/authors/authors_crud';
 import { findAllPost, findOnePost } from '../models/posts/post_crud';
-
 import { AuthorType, PostType } from './types';
 
 const query = new GraphQLObjectType({
@@ -32,6 +31,4 @@ const query = new GraphQLObjectType({
   }
 });
 
-export default new GraphQLSchema({
-  query
-});
+export default query;

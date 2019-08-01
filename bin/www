@@ -31,7 +31,10 @@ var server = http.createServer(app);
  * Connect to database.
  */
 
-connection(process.env.MONGODB_URL, { useCreateIndex: true })
+var processEnv =
+  process.env.MONGO_ENV === 'development' ? process.env.MONGODEV_URl : process.env.MONGOPROD_URL;
+
+connection(processEnv, { useCreateIndex: true })
   .then(() => {
     console.log('connected successfully');
   })

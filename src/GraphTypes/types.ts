@@ -2,7 +2,7 @@ import { GraphQLObjectType, GraphQLString, GraphQLList } from 'graphql';
 import { findOneAuthor } from '../models/authors/authors_crud';
 import { findAllPost } from '../models/posts/post_crud';
 
-export const AuthorType = new GraphQLObjectType({
+export const AuthorType: any = new GraphQLObjectType({
   name: 'Author',
   fields: () => ({
     id: {

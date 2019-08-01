@@ -3,9 +3,9 @@ import { AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/ty
 import { validateNewAuthor, validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
 import { constructError } from '../../utils/utilities';
 
-export const findAllAuthors = async () => {
+export const findAllAuthors = async (author = {}) => {
   try {
-    return await Authors.find().exec();
+    return await Authors.find(author).exec();
   } catch (error) {
     return new Error(error.message);
   }
@@ -19,19 +19,19 @@ export const findOneAuthor = async (authorID: string) => {
   }
 };
 
-export const createOne = (author: AuthorInterface) => {
+export const createAuthor = async (author: AuthorInterface) => {
   try {
     const { error, value } = validateNewAuthor(author);
 
     if (error) return constructError(error.details);
 
-    return Authors.create(value);
+    return await Authors.create(value);
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const updateOne = async (authorID: string, authorUpdate: AuthorUpdateInterface) => {
+export const updateAuthor = async (authorID: string, authorUpdate: AuthorUpdateInterface) => {
   try {
     const { error, value } = validateUpdateAuthor(authorUpdate);
 
@@ -43,7 +43,7 @@ export const updateOne = async (authorID: string, authorUpdate: AuthorUpdateInte
   }
 };
 
-export const deleteOne = async (authorID: string) => {
+export const deleteAuthor = async (authorID: string) => {
   try {
     return await Authors.findByIdAndDelete(authorID).exec();
   } catch (error) {

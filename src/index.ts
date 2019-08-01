@@ -6,7 +6,7 @@ import graphqlHTTP from 'express-graphql';
 
 import commentsRouter from './routes/comments';
 import usersRouter from './routes/users';
-import schema from './GraphTypes/schema';
+import schema from './GraphTypes';
 
 const app = express();
 

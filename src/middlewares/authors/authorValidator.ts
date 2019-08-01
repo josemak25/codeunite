@@ -1,5 +1,9 @@
 import Joi from 'joi';
-import { ErrorInterface, AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
+import {
+  ErrorInterface,
+  AuthorInterface,
+  AuthorUpdateInterface
+} from '../../typescriptTypes/types';
 
 const CreateAuthorSchema = {
   name: Joi.string()
@@ -32,16 +36,16 @@ const UpdateAuthorSchema = {
     .max(25)
 };
 
-export const validateNewAuthor = (course: AuthorInterface) => {
-  return Joi.validate(course, CreateAuthorSchema, {
+export const validateNewAuthor = (author: AuthorInterface) => {
+  return Joi.validate(author, CreateAuthorSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true
   });
 };
 
-export const validateUpdateAuthor = (course: AuthorUpdateInterface) => {
-  if (!Object.keys(course).length) {
+export const validateUpdateAuthor = (author: AuthorUpdateInterface) => {
+  if (!Object.keys(author).length) {
     const value: any = null;
 
     const errorObject: ErrorInterface = {
@@ -57,7 +61,7 @@ export const validateUpdateAuthor = (course: AuthorUpdateInterface) => {
     return { error, value };
   }
 
-  return Joi.validate(course, UpdateAuthorSchema, {
+  return Joi.validate(author, UpdateAuthorSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true

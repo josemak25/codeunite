@@ -4,10 +4,10 @@ export interface AuthorInterface extends Document {
   name: string;
   email: string;
   password: string;
-  createdAt: string;
+  createdAt?: string;
 }
 
-export interface AuthorUpdateInterface extends Document {
+export interface AuthorUpdateInterface {
   name?: string;
   email?: string;
   password?: string;
@@ -24,7 +24,7 @@ export interface PostInterface extends Document {
   pubDate?: string;
 }
 
-export interface PostUpdateInterface extends Document {
+export interface PostUpdateInterface {
   title: string;
   description?: string;
   thumbnail?: string;
