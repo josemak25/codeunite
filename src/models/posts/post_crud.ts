@@ -11,9 +11,9 @@ export const findAllPost = async (args = {}) => {
   }
 };
 
-export const findOnePost = async (postID: string) => {
+export const findOnePost = async (post = {}) => {
   try {
-    return await Posts.findOne({ _id: postID }).exec();
+    return await Posts.findOne(post).exec();
   } catch (error) {
     return new Error(error.message);
   }

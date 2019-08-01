@@ -1,8 +1,9 @@
-import { GraphQLObjectType, GraphQLString, GraphQLNonNull } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLList } from 'graphql';
 import { AuthorType } from './types';
 
-import { createAuthor, updateAuthor } from '../models/authors/authors_crud';
-import signinAuthor from '../middlewares/auth/auth';
+import { updateAuthor } from '../models/authors/authors_crud';
+import signinAuthor from '../middlewares/auth/signin';
+import signupAuthor from '../middlewares/auth/signup';
 
 const mutation = new GraphQLObjectType({
   name: 'Mutations',
@@ -16,17 +17,17 @@ const mutation = new GraphQLObjectType({
         email: { type: GraphQLNonNull(GraphQLString) },
         password: { type: GraphQLNonNull(GraphQLString) }
       },
-      resolve: (_, args) => createAuthor(args)
+      resolve: (_, args) => signupAuthor(args)
     },
 
     signin: {
-      type: AuthorType,
-      description: 'login to the platform as authorized user',
+      type: GraphQLList(AuthorType),
+      description: 'login to the platform as an authorized user',
       args: {
         email: { type: GraphQLNonNull(GraphQLString) },
         password: { type: GraphQLNonNull(GraphQLString) }
       },
-      resolve: (_, args) => signinAuthor(args)
+      resolve: (_, args, context, info) => signinAuthor(args, { context, info })
     },
 
     updateAuthor: {

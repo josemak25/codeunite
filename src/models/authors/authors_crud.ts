@@ -1,31 +1,27 @@
 import Authors from './authors';
-import { AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
-import { validateNewAuthor, validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
+import { SignupAuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
+import { validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
 import { constructError } from '../../utils/utilities';
 
-export const findAllAuthors = async (author = {}) => {
+export const findAllAuthors = async () => {
   try {
-    return await Authors.find(author).exec();
+    return await Authors.find().exec();
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const findOneAuthor = async (authorID: string) => {
+export const findOneAuthor = async (author = {}) => {
   try {
-    return await Authors.findOne({ _id: authorID }).exec();
+    return await Authors.findOne(author).exec();
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const createAuthor = async (author: AuthorInterface) => {
+export const createAuthor = async (author: SignupAuthorInterface) => {
   try {
-    const { error, value } = validateNewAuthor(author);
-
-    if (error) return constructError(error.details);
-
-    return await Authors.create(value);
+    return await Authors.create(author);
   } catch (error) {
     return new Error(error.message);
   }

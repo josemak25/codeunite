@@ -28,6 +28,11 @@ export const AuthorType: any = new GraphQLObjectType({
     posts: {
       type: GraphQLList(PostType),
       resolve: parent => findAllPost({ author_id: parent.id })
+    },
+
+    token: {
+      type: GraphQLString,
+      description: 'this is the author token'
     }
   })
 });

@@ -22,8 +22,6 @@ const schema = new Schema({
   },
   password: {
     type: String,
-    minlength: 6,
-    maxlength: 20,
     required: true
   },
   createdAt: {

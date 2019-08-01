@@ -44,3 +44,9 @@ export interface ErrorInterface {
   path: string[];
   type: string;
 }
+
+export interface SignupAuthorInterface {
+  name: string;
+  email: string;
+  password: string;
+}

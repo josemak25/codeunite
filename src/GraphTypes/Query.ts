@@ -15,7 +15,7 @@ const query = new GraphQLObjectType({
     author: {
       type: AuthorType,
       args: { id: { type: GraphQLString } },
-      resolve: (_parents, args) => findOneAuthor(args.id)
+      resolve: (_parents, args) => findOneAuthor({ _id: args.id })
     },
 
     posts: {
@@ -26,7 +26,7 @@ const query = new GraphQLObjectType({
     post: {
       type: PostType,
       args: { id: { type: GraphQLString } },
-      resolve: (_parent, args) => findOnePost(args.id)
+      resolve: (_parent, args) => findOnePost({ _id: args.id })
     }
   }
 });

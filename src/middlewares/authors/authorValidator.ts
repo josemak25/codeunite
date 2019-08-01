@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import {
   ErrorInterface,
-  AuthorInterface,
+  SignupAuthorInterface,
   AuthorUpdateInterface
 } from '../../typescriptTypes/types';
 
@@ -36,7 +36,7 @@ const UpdateAuthorSchema = {
     .max(25)
 };
 
-export const validateNewAuthor = (author: AuthorInterface) => {
+export const validateNewAuthor = (author: SignupAuthorInterface) => {
   return Joi.validate(author, CreateAuthorSchema, {
     abortEarly: false,
     stripUnknown: true,
