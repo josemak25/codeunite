@@ -1,4 +1,4 @@
-import { GraphQLObjectType, GraphQLString, GraphQLNonNull, GraphQLList } from 'graphql';
+import { GraphQLObjectType, GraphQLString, GraphQLNonNull } from 'graphql';
 import { AuthorType } from './types';
 
 import { updateAuthor } from '../models/authors/authors_crud';
@@ -21,7 +21,7 @@ const mutation = new GraphQLObjectType({
     },
 
     signin: {
-      type: GraphQLList(AuthorType),
+      type: AuthorType,
       description: 'login to the platform as an authorized user',
       args: {
         email: { type: GraphQLNonNull(GraphQLString) },

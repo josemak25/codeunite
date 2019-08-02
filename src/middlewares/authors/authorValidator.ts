@@ -12,8 +12,9 @@ const CreateAuthorSchema = {
     .required(),
 
   email: Joi.string()
-    .min(5)
-    .max(80)
+    .email({
+      minDomainAtoms: 2
+    })
     .required(),
 
   password: Joi.string()

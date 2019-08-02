@@ -5,6 +5,7 @@ export interface AuthorInterface extends Document {
   email: string;
   password: string;
   createdAt?: string;
+  _id: string;
 }
 
 export interface AuthorUpdateInterface {
@@ -46,7 +47,13 @@ export interface ErrorInterface {
 }
 
 export interface SignupAuthorInterface {
-  name: string;
   email: string;
   password: string;
+}
+
+export interface ICreateUserInput {
+  email: AuthorInterface['email'];
+  name: AuthorInterface['name'];
+  password: AuthorInterface['password'];
+  _id: AuthorInterface['_id'];
 }

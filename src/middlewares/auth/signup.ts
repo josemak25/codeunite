@@ -1,18 +1,17 @@
 import bcrypt from 'bcryptjs';
-import Jwt from 'jsonwebtoken';
 import { validateNewAuthor } from '../../middlewares/authors/authorValidator';
-import { constructError } from '../../utils/utilities';
-
-const {
-  parsed: { SECRET_KEY }
-} = require('dotenv').config();
+import { constructError, validateSignupInput } from '../../utils/utilities';
 
 import { createAuthor, findOneAuthor } from '../../models/authors/authors_crud';
 
-import { SignupAuthorInterface } from '../../typescriptTypes/types';
+import { SignupAuthorInterface, ICreateUserInput } from '../../typescriptTypes/types';
 
 const signupAuthor = async (author: SignupAuthorInterface) => {
   try {
+    const emptyFields = validateSignupInput(author);
+
+    if (Object.keys(emptyFields).length) return new Error(JSON.stringify(emptyFields));
+
     const { error, value } = validateNewAuthor(author);
 
     if (error) {
@@ -26,14 +25,15 @@ const signupAuthor = async (author: SignupAuthorInterface) => {
     }
 
     value.password = await bcrypt.hash(value.password, 10);
-    const response = await createAuthor(value);
 
-    const tokenObject = { id: response._id, email: response.email };
+    const result: ICreateUserInput = await createAuthor(value);
 
-    const token = Jwt.sign(tokenObject, SECRET_KEY, { expiresIn: '1h' });
+    const token = result.generateAuthToken();
+
+    const { _id: id, name, email } = result;
 
     return {
-      ...tokenObject,
+      ...{ id, name, email },
       token
     };
   } catch (error) {

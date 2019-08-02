@@ -20,11 +20,6 @@ export const AuthorType: any = new GraphQLObjectType({
       description: 'this is the authors email'
     },
 
-    password: {
-      type: GraphQLString,
-      description: 'this is the author password'
-    },
-
     posts: {
       type: GraphQLList(PostType),
       resolve: parent => findAllPost({ author_id: parent.id })
@@ -32,12 +27,12 @@ export const AuthorType: any = new GraphQLObjectType({
 
     token: {
       type: GraphQLString,
-      description: 'this is the author token'
+      description: 'this is the author access token'
     }
   })
 });
 
-export const PostType = new GraphQLObjectType({
+export const PostType: any = new GraphQLObjectType({
   name: 'Post',
   fields: () => ({
     id: {
