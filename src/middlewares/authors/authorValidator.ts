@@ -34,7 +34,9 @@ const UpdateAuthorSchema = {
 
   password: Joi.string()
     .min(6)
-    .max(25)
+    .max(25),
+
+  id: Joi.string().required()
 };
 
 export const validateNewAuthor = (author: SignupAuthorInterface) => {

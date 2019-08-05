@@ -30,7 +30,7 @@ const schema = new Schema({
     trim: true,
     lowercase: true,
     minlength: 5,
-    default: undefined
+    default: 'Unknown'
   },
 
   link: {
@@ -38,7 +38,7 @@ const schema = new Schema({
     trim: true,
     lowercase: true,
     minlength: 5,
-    default: undefined
+    default: 'Unknown'
   },
 
   content: {
@@ -52,8 +52,10 @@ const schema = new Schema({
     type: String,
     minlength: 5,
     maxlength: 50,
-    trim: true
+    trim: true,
+    default: 'Unknown'
   },
+
   pubDate: {
     type: Date,
     default: Date.now

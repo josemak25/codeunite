@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/comments', commentsRouter);
 
-app.use('/graphql', graphqlHTTP({schema, graphiql: true }));
+app.use('/graphql', graphqlHTTP(req => ({ schema, graphiql: true, context: { req } })));
 
 // catch 404 and forward to error handler
 app.use(function(_req, _res, next) {

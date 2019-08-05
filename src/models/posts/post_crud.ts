@@ -1,11 +1,13 @@
 import Posts from './posts';
-import { AuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
-import { validateNewAuthor, validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
+import { PostInterface, PostUpdateInterface } from '../../typescriptTypes/types';
+import { validateUpdatePost } from '../../middlewares/posts/postValidator';
 import { constructError } from '../../utils/utilities';
 
 export const findAllPost = async (args = {}) => {
   try {
-    return await Posts.find(args).exec();
+    return await Posts.find(args)
+      .sort({ pubDate: -1 })
+      .exec();
   } catch (error) {
     return new Error(error.message);
   }
@@ -19,21 +21,17 @@ export const findOnePost = async (post = {}) => {
   }
 };
 
-export const createPost = (author: AuthorInterface) => {
+export const createPost = (post: PostInterface) => {
   try {
-    const { error, value } = validateNewAuthor(author);
-
-    if (error) return constructError(error.details);
-
-    return Posts.create(value);
+    return Posts.create(post);
   } catch (error) {
     return new Error(error.message);
   }
 };
 
-export const updatePost = async (postID: string, authorUpdate: AuthorUpdateInterface) => {
+export const updatePost = async (postID: string, postUpdate: PostUpdateInterface) => {
   try {
-    const { error, value } = validateUpdateAuthor(authorUpdate);
+    const { error, value } = validateUpdatePost(postUpdate);
 
     if (error) return constructError(error.details);
 

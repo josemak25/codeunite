@@ -12,15 +12,16 @@ export interface AuthorUpdateInterface {
   name?: string;
   email?: string;
   password?: string;
+  user?: TokenInterface | any;
 }
 
 export interface PostInterface extends Document {
   title: string;
-  author: string;
   description: string;
-  thumbnail?: string;
-  link?: string;
   content: string;
+  thumbnail?: string;
+  author_id: string;
+  link?: string;
   categories?: string;
   pubDate?: string;
 }
@@ -56,4 +57,11 @@ export interface ICreateUserInput {
   name: AuthorInterface['name'];
   password: AuthorInterface['password'];
   _id: AuthorInterface['_id'];
+}
+
+export interface TokenInterface {
+  id: string;
+  email: string;
+  iat: number;
+  exp: number;
 }

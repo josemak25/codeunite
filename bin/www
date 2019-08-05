@@ -34,7 +34,7 @@ var server = http.createServer(app);
 var processEnv =
   process.env.MONGO_ENV === 'development' ? process.env.MONGODEV_URl : process.env.MONGOPROD_URL;
 
-connection(processEnv, { useCreateIndex: true })
+connection(processEnv, { useCreateIndex: true, useFindAndModify: false })
   .then(() => {
     console.log('connected successfully');
   })

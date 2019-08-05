@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-import Jwt from 'jsonwebtoken';
+import { sign } from 'jsonwebtoken';
 const {
   parsed: { SECRET_KEY }
 } = require('dotenv').config();
@@ -37,7 +37,7 @@ const schema = new Schema({
 
 schema.methods.generateAuthToken = function() {
   const author = { id: this._id, email: this.email };
-  return Jwt.sign(author, SECRET_KEY, { expiresIn: '1h' });
+  return sign(author, SECRET_KEY, { expiresIn: '1h' });
 };
 
 export default model<AuthorInterface>('authors', schema);

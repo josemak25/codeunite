@@ -7,7 +7,7 @@ const CreatePostSchema = {
     .max(150)
     .required(),
 
-  author: Joi.string()
+  author_id: Joi.string()
     .max(24)
     .required(),
 
@@ -24,7 +24,7 @@ const CreatePostSchema = {
     .min(5)
     .required(),
 
-  categories: Joi.string()
+  category: Joi.string()
     .min(6)
     .max(50)
 };
@@ -49,16 +49,16 @@ const UpdatePostSchema = {
     .max(50)
 };
 
-export const validateNewPost = (course: PostInterface) => {
-  return Joi.validate(course, CreatePostSchema, {
+export const validateNewPost = (post: PostInterface) => {
+  return Joi.validate(post, CreatePostSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true
   });
 };
 
-export const validateUpdatePost = (course: PostUpdateInterface) => {
-  if (!Object.keys(course).length) {
+export const validateUpdatePost = (post: PostUpdateInterface) => {
+  if (!Object.keys(post).length) {
     const value: any = null;
 
     const errorObject: ErrorInterface = {
@@ -74,7 +74,7 @@ export const validateUpdatePost = (course: PostUpdateInterface) => {
     return { error, value };
   }
 
-  return Joi.validate(course, UpdatePostSchema, {
+  return Joi.validate(post, UpdatePostSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true

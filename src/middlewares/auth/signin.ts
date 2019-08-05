@@ -4,7 +4,7 @@ import { findOneAuthor } from '../../models/authors/authors_crud';
 import { SignupAuthorInterface, ICreateUserInput } from '../../typescriptTypes/types';
 import { validateSigninInput } from '../../utils/utilities';
 
-const signinAuthor = async (author: SignupAuthorInterface, rest: object) => {
+const signinAuthor = async (author: SignupAuthorInterface) => {
   const emptyFields = validateSigninInput(author);
 
   if (Object.keys(emptyFields).length) return new Error(JSON.stringify(emptyFields));

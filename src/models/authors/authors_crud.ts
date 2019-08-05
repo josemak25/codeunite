@@ -1,7 +1,5 @@
 import Authors from './authors';
 import { SignupAuthorInterface, AuthorUpdateInterface } from '../../typescriptTypes/types';
-import { validateUpdateAuthor } from '../../middlewares/authors/authorValidator';
-import { constructError } from '../../utils/utilities';
 
 export const findAllAuthors = async () => {
   try {
@@ -29,11 +27,7 @@ export const createAuthor = async (author: SignupAuthorInterface) => {
 
 export const updateAuthor = async (authorID: string, authorUpdate: AuthorUpdateInterface) => {
   try {
-    const { error, value } = validateUpdateAuthor(authorUpdate);
-
-    if (error) return constructError(error.details);
-
-    return await Authors.findByIdAndUpdate(authorID, value, { new: true }).exec();
+    return await Authors.findOneAndUpdate({ _id: authorID }, authorUpdate, { new: true }).exec();
   } catch (error) {
     return new Error(error.message);
   }
