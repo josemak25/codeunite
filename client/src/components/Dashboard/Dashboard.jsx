@@ -51,10 +51,7 @@ const Dashboard = () => {
             </div>
             <h3>Anna Smith</h3>
             <span className={styles.totalView}>
-              <i
-                className="fas fa-heart"
-                style={{ color: '#ff6384', fontSize: '1.5rem' }}
-              />
+              <i className="fas fa-heart" style={{ color: '#ff6384', fontSize: '1.5rem' }} />
               352
             </span>
             <div className={styles.links}>
@@ -96,7 +93,12 @@ const Dashboard = () => {
           </div>
           <section className={styles.desktopIcons}>
             {pageLinks.desktopIcons.map((icon, i) => (
-              <NavLink key={i} to={pageLinks.links[i].path}>
+              <NavLink
+                key={i}
+                exact
+                to={pageLinks.links[i].path}
+                activeClassName={styles.activeNav}
+              >
                 {icon}
               </NavLink>
             ))}

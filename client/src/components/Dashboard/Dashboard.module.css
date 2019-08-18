@@ -174,11 +174,12 @@
   color: #66717a;
 }
 
+.activeNav,
 .desktopLogout:hover,
 .desktopIcons a:hover {
   cursor: pointer;
   background: #f5c4d4;
-  color: #ff6384;
+  color: #ff6384 !important;
   transition: 0.3s ease-in-out all;
 }
 
