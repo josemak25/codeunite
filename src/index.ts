@@ -4,8 +4,6 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import graphqlHTTP from 'express-graphql';
 
-import commentsRouter from './routes/comments';
-import usersRouter from './routes/users';
 import schema from './GraphTypes';
 
 const app = express();
@@ -14,10 +12,6 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, '../public')));
-
-app.use('/api/v1/users', usersRouter);
-app.use('/api/v1/comments', commentsRouter);
 
 app.use('/graphql', graphqlHTTP(req => ({ schema, graphiql: true, context: { req } })));
 

@@ -1,11 +1,11 @@
 import Joi from 'joi';
 import {
   ErrorInterface,
-  SignupAuthorInterface,
-  AuthorUpdateInterface
+  SignupUserInterface,
+  UserUpdateInterface
 } from '../../typescriptTypes/types';
 
-const CreateAuthorSchema = {
+const CreateUserSchema = {
   name: Joi.string()
     .min(3)
     .max(150)
@@ -23,7 +23,7 @@ const CreateAuthorSchema = {
     .required()
 };
 
-const UpdateAuthorSchema = {
+const UpdateUserSchema = {
   name: Joi.string()
     .min(3)
     .max(150),
@@ -34,21 +34,19 @@ const UpdateAuthorSchema = {
 
   password: Joi.string()
     .min(6)
-    .max(25),
-
-  id: Joi.string().required()
+    .max(25)
 };
 
-export const validateNewAuthor = (author: SignupAuthorInterface) => {
-  return Joi.validate(author, CreateAuthorSchema, {
+export const validateUserSignup = (user: SignupUserInterface) => {
+  return Joi.validate(user, CreateUserSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true
   });
 };
 
-export const validateUpdateAuthor = (author: AuthorUpdateInterface) => {
-  if (!Object.keys(author).length) {
+export const validateUserUpdate = (user: UserUpdateInterface) => {
+  if (!Object.keys(user).length) {
     const value: any = null;
 
     const errorObject: ErrorInterface = {
@@ -64,7 +62,7 @@ export const validateUpdateAuthor = (author: AuthorUpdateInterface) => {
     return { error, value };
   }
 
-  return Joi.validate(author, UpdateAuthorSchema, {
+  return Joi.validate(user, UpdateUserSchema, {
     abortEarly: false,
     stripUnknown: true,
     skipFunctions: true

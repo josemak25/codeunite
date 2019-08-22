@@ -1,23 +1,23 @@
 import { GraphQLObjectType, GraphQLString, GraphQLList } from 'graphql';
-import { findOneAuthor } from '../models/authors/authors_crud';
-import { findAllPost } from '../models/posts/post_crud';
+import { findOneUser } from '../controllers/user/User';
+import { findAllPost } from '../controllers/post/Post';
 
-export const AuthorType: any = new GraphQLObjectType({
-  name: 'Author',
+export const UserType: any = new GraphQLObjectType({
+  name: 'User',
   fields: () => ({
     id: {
       type: GraphQLString,
-      description: 'this is the author id'
+      description: 'this is the user id'
     },
 
     name: {
       type: GraphQLString,
-      description: 'this is the author name'
+      description: 'this is the user name'
     },
 
     email: {
       type: GraphQLString,
-      description: 'this is the authors email'
+      description: 'this is the users email'
     },
 
     posts: {
@@ -27,7 +27,7 @@ export const AuthorType: any = new GraphQLObjectType({
 
     token: {
       type: GraphQLString,
-      description: 'this is the author access token'
+      description: 'this is the user access token'
     }
   })
 });
@@ -46,9 +46,9 @@ export const PostType: any = new GraphQLObjectType({
     },
 
     author: {
-      type: AuthorType,
-      description: 'this is the id of the author whom created the post',
-      resolve: (parent, _args) => findOneAuthor(parent.author_id)
+      type: UserType,
+      description: 'this is the id of the user whom created the post',
+      resolve: (parent, _args) => findOneUser(parent.author_id)
     },
 
     description: {

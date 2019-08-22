@@ -1,4 +1,4 @@
-import { ErrorInterface, SignupAuthorInterface } from '../typescriptTypes/types';
+import { ErrorInterface, SignupUserInterface } from '../typescriptTypes/types';
 
 export const constructError = (error: ErrorInterface[]) => {
   return error.reduce<any>((acc, err) => {
@@ -7,7 +7,7 @@ export const constructError = (error: ErrorInterface[]) => {
   }, {});
 };
 
-export const validateSignupInput = ({ name, email, password }: SignupAuthorInterface) => {
+export const validateSignupInput = ({ name, email, password }: any) => {
   const errors: any = {};
   if (name.trim() === '') {
     errors.name = 'Name cannot be empty';
@@ -21,7 +21,7 @@ export const validateSignupInput = ({ name, email, password }: SignupAuthorInter
   return errors;
 };
 
-export const validateSigninInput = ({ email, password }: SignupAuthorInterface) => {
+export const validateSigninInput = ({ email, password }: SignupUserInterface) => {
   const errors: any = {};
 
   if (email.trim() === '') {

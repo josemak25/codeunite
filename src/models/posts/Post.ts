@@ -13,7 +13,7 @@ const schema = new Schema({
 
   author_id: {
     type: SchemaTypes.ObjectId,
-    ref: 'authors',
+    ref: 'users',
     required: true
   },
 

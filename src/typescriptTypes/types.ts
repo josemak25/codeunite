@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface AuthorInterface extends Document {
+export interface UserInterface extends Document {
   name: string;
   email: string;
   password: string;
@@ -8,7 +8,7 @@ export interface AuthorInterface extends Document {
   _id: string;
 }
 
-export interface AuthorUpdateInterface {
+export interface UserUpdateInterface {
   name?: string;
   email?: string;
   password?: string;
@@ -27,7 +27,7 @@ export interface PostInterface extends Document {
 }
 
 export interface PostUpdateInterface {
-  title: string;
+  title?: string;
   description?: string;
   thumbnail?: string;
   link?: string;
@@ -47,16 +47,16 @@ export interface ErrorInterface {
   type: string;
 }
 
-export interface SignupAuthorInterface {
+export interface SignupUserInterface {
   email: string;
   password: string;
 }
 
 export interface ICreateUserInput {
-  email: AuthorInterface['email'];
-  name: AuthorInterface['name'];
-  password: AuthorInterface['password'];
-  _id: AuthorInterface['_id'];
+  email: UserInterface['email'];
+  name: UserInterface['name'];
+  password: UserInterface['password'];
+  _id: UserInterface['_id'];
 }
 
 export interface TokenInterface {

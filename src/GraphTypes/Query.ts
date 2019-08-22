@@ -1,21 +1,38 @@
 import { GraphQLObjectType, GraphQLList, GraphQLString } from 'graphql';
-import { findOneAuthor, findAllAuthors } from '../models/authors/authors_crud';
-import { findAllPost, findOnePost } from '../models/posts/post_crud';
-import { AuthorType, PostType } from './types';
+import { findOneUser, findAllUsers } from '../controllers/user/User';
+import { findAllPost, findOnePost } from '../controllers/post/Post';
+import { UserType, PostType } from './types';
+import checkRequestAuth from '../services/auth.service';
 
 const query = new GraphQLObjectType({
   name: 'RootQueryType',
   description: 'Root query for all types and function',
   fields: {
-    authors: {
-      type: GraphQLList(AuthorType),
-      resolve: () => findAllAuthors()
+    users: {
+      type: GraphQLList(UserType),
+      resolve: async (_parent, _, context) => {
+        try {
+          const user = checkRequestAuth(context.req);
+
+          if (!user) {
+            return new Error('You are not authorized to perform this operation');
+          }
+
+          if (!user.isAdmin) {
+            return new Error('You are not authorized to perform this operation');
+          }
+
+          return await findAllUsers();
+        } catch (error) {
+          throw new Error(error.message);
+        }
+      }
     },
 
-    author: {
-      type: AuthorType,
+    user: {
+      type: UserType,
       args: { id: { type: GraphQLString } },
-      resolve: (_parents, args) => findOneAuthor({ _id: args.id })
+      resolve: (_parents, args) => findOneUser(args.id)
     },
 
     posts: {
